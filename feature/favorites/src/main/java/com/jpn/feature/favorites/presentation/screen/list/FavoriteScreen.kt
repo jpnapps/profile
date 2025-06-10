@@ -49,6 +49,7 @@ fun FavoriteScreen2(viewModel: FavoriteViewModel) {
     }
 }*/
 
+
 @Composable
 fun FavoriteScreen(viewModel: FavoriteViewModel) {
     val favorites by viewModel.favorites.collectAsState()

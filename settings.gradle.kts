@@ -30,7 +30,7 @@ dependencyResolutionManagement {
 
 rootProject.name = "Jithish"
 include(":app")
-include(":data:ui")
+/*include(":data:ui")
 include(":data:remote")
 include(":data:local")
 
@@ -48,4 +48,4 @@ project(":feature:favorites").projectDir = file("feature/favorites")
 project(":feature:notes").projectDir = file("feature/notes")
 project(":feature:profile").projectDir = file("feature/profile")
 project(":feature:reminder").projectDir = file("feature/reminder")
-project(":feature:more").projectDir = file("feature/more")
+project(":feature:more").projectDir = file("feature/more")*/

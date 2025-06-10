@@ -7,11 +7,13 @@ import com.jpn.feature.favorites.domain.model.Favorite
 import com.jpn.feature.favorites.domain.repository.FavoriteRepository
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.map
-import javax.inject.Inject
-
-class FavoriteRepositoryImpl @Inject constructor(
+//import javax.inject.Inject
+class FavoriteRepositoryImpl(
     private val dao: FavoriteDao
 ) : FavoriteRepository {
+/*class FavoriteRepositoryImpl @Inject constructor(
+    private val dao: FavoriteDao
+) : FavoriteRepository {*/
     override fun getFavorites(): Flow<List<Favorite>> =
         dao.getAllFavorites().map { list -> list.map { it.toDomain() } }
 

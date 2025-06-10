@@ -1,7 +1,7 @@
 plugins {
     alias(libs.plugins.android.library)
     alias(libs.plugins.kotlin.android)
-    //alias(libs.plugins.kotlin.compose)
+    alias(libs.plugins.kotlin.compose)
 }
 
 android {
@@ -34,10 +34,10 @@ android {
     buildFeatures {
         compose = true
     }
-    composeOptions {
+ /*   composeOptions {
         //kotlinCompilerExtensionVersion = "1.5.13" // 👈 Match this with Kotlin 1.9.24
         kotlinCompilerExtensionVersion = "1.5.10"
-    }
+    }*/
 }
 
 dependencies {

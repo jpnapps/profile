@@ -11,16 +11,6 @@
           <set>
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/app" />
-            <option value="$PROJECT_DIR$/data" />
-            <option value="$PROJECT_DIR$/data/local" />
-            <option value="$PROJECT_DIR$/data/remote" />
-            <option value="$PROJECT_DIR$/data/ui" />
-            <option value="$PROJECT_DIR$/feature" />
-            <option value="$PROJECT_DIR$/feature/favorites" />
-            <option value="$PROJECT_DIR$/feature/more" />
-            <option value="$PROJECT_DIR$/feature/notes" />
-            <option value="$PROJECT_DIR$/feature/profile" />
-            <option value="$PROJECT_DIR$/feature/reminder" />
           </set>
         </option>
       </GradleProjectSettings>

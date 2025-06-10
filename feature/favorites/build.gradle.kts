@@ -1,9 +1,9 @@
 plugins {
     alias(libs.plugins.android.library)
     alias(libs.plugins.kotlin.android)
-    alias(libs.plugins.kotlin.kapt)
-    //alias(libs.plugins.kotlin.compose)
-    alias(libs.plugins.dagger.hilt)
+    alias(libs.plugins.ksp)
+    alias(libs.plugins.kotlin.compose)
+    //alias(libs.plugins.dagger.hilt)
 }
 
 android {
@@ -37,10 +37,10 @@ android {
     buildFeatures {
         compose = true
     }
-    composeOptions {
+  /*  composeOptions {
         //kotlinCompilerExtensionVersion = "1.5.13" // 👈 Match this with Kotlin 1.9.24
         kotlinCompilerExtensionVersion = "1.5.10" // 👈 Match this with Kotlin 1.9.22
-    }
+    }*/
 
 }
 
@@ -53,12 +53,12 @@ dependencies {
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
 
-    implementation(libs.hilt.android)
-    kapt(libs.hilt.compiler)
+/*    implementation(libs.hilt.android)
+    ksp(libs.hilt.compiler)*/
 
-    implementation(libs.room.runtime)
-    kapt(libs.room.compiler)
-    implementation(libs.room.ktx)
+/*    implementation(libs.room.runtime)
+    ksp(libs.room.compiler)
+    implementation(libs.room.ktx)*/
 
     implementation(libs.androidx.lifecycle.runtime.ktx)
     implementation(libs.androidx.activity.compose)
