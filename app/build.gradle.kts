@@ -2,9 +2,8 @@ plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
     alias(libs.plugins.kotlin.compose)
-    alias(libs.plugins.kotlin.kapt)
     alias(libs.plugins.ksp)
-    alias(libs.plugins.dagger.hilt)
+    alias(libs.plugins.hiltAndroid)
 }
 
 android {
@@ -62,10 +61,10 @@ dependencies {
     debugImplementation(libs.androidx.ui.test.manifest)
 
     implementation(libs.hilt.android)
-    kapt(libs.hilt.compiler)
+    ksp(libs.hilt.compiler)
     implementation(libs.hilt.navigation.compose)
 
-    //implementation(project(":feature:profile"))
-   // implementation(project(":feature:favorites"))
+    implementation(project(":feature:profile"))
+    implementation(project(":feature:favorites"))
     //implementation(project(":data:local"))
 }

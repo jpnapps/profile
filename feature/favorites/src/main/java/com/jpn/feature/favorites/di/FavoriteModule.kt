@@ -1,6 +1,7 @@
 package com.jpn.feature.favorites.di
 
-/*import com.jpn.feature.favorites.data.local.dao.FavoriteDao
+import com.jpn.core.local.AppDatabase
+import com.jpn.core.local.dao.FavoriteDao
 import com.jpn.feature.favorites.data.repository.FavoriteRepositoryImpl
 import com.jpn.feature.favorites.domain.repository.FavoriteRepository
 import com.jpn.feature.favorites.domain.usecase.AddFavoriteUseCase
@@ -8,14 +9,9 @@ import com.jpn.feature.favorites.domain.usecase.GetFavoritesUseCase
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
-import dagger.hilt.android.components.ViewModelComponent
 import dagger.hilt.components.SingletonComponent
-import javax.inject.Singleton*/
+import javax.inject.Singleton
 
-object FavoriteModule {
-
-}
-/*
 @Module
 @InstallIn(SingletonComponent::class)
 object FavoriteModule {
@@ -35,6 +31,7 @@ object FavoriteModule {
     ): GetFavoritesUseCase {
         return GetFavoritesUseCase(repository)
     }
+
     @Provides
     @Singleton
     fun provideAddFavoriteUseCase(
@@ -42,7 +39,4 @@ object FavoriteModule {
     ): AddFavoriteUseCase {
         return AddFavoriteUseCase(repository)
     }
-
-
-
-}*/
+}

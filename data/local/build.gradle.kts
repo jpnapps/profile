@@ -1,11 +1,10 @@
 plugins {
     alias(libs.plugins.android.library)
     alias(libs.plugins.kotlin.android)
-    //alias(libs.plugins.kotlin.kapt)
-    alias(libs.plugins.dagger.hilt)
+    alias(libs.plugins.hiltAndroid)
     alias(libs.plugins.ksp)
 }
-//    ///alias(libs.plugins.ksp)
+
 android {
     namespace = "com.jpn.core.local"
     compileSdk = 35
@@ -45,7 +44,6 @@ dependencies {
     androidTestImplementation(libs.androidx.espresso.core)
 
     implementation(libs.room.runtime)
-    //kapt(libs.room.compiler)
     ksp(libs.room.compiler)
     implementation(libs.room.ktx)
 
@@ -53,7 +51,5 @@ dependencies {
     implementation(libs.hilt.android)
     ksp(libs.hilt.compiler)
 
-    implementation(project(":feature:favorites"))
+    //implementation(project(":feature:favorites"))
 }
-
-//ksp(libs.room.compiler)

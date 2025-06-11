@@ -3,7 +3,7 @@ plugins {
     alias(libs.plugins.kotlin.android)
     alias(libs.plugins.ksp)
     alias(libs.plugins.kotlin.compose)
-    //alias(libs.plugins.dagger.hilt)
+    alias(libs.plugins.hiltAndroid)
 }
 
 android {
@@ -53,12 +53,12 @@ dependencies {
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
 
-/*    implementation(libs.hilt.android)
-    ksp(libs.hilt.compiler)*/
+    implementation(libs.hilt.android)
+    ksp(libs.hilt.compiler)
 
-/*    implementation(libs.room.runtime)
+    implementation(libs.room.runtime)
     ksp(libs.room.compiler)
-    implementation(libs.room.ktx)*/
+    implementation(libs.room.ktx)
 
     implementation(libs.androidx.lifecycle.runtime.ktx)
     implementation(libs.androidx.activity.compose)
@@ -70,4 +70,6 @@ dependencies {
     implementation(libs.androidx.navigation.compose)
 
     implementation(libs.coil.compose)
+
+    implementation(project(":data:local"))
 }
