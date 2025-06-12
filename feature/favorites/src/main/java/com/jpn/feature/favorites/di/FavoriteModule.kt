@@ -1,6 +1,5 @@
 package com.jpn.feature.favorites.di
 
-import com.jpn.core.local.AppDatabase
 import com.jpn.core.local.dao.FavoriteDao
 import com.jpn.feature.favorites.data.repository.FavoriteRepositoryImpl
 import com.jpn.feature.favorites.domain.repository.FavoriteRepository

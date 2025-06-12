@@ -30,7 +30,7 @@ fun MainScreen(navController: NavHostController = rememberNavController()) {
             }
             composable("notes") { /* TODO */ }
             composable("profile") {
-               // ProfileScreen()
+                ProfileScreen()
             }
             composable("study") { /* TODO */ }
             composable("settings") { /* TODO */ }
