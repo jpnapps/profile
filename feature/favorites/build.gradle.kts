@@ -1,9 +1,9 @@
 plugins {
     alias(libs.plugins.android.library)
     alias(libs.plugins.kotlin.android)
-    alias(libs.plugins.kotlin.kapt)
-    //alias(libs.plugins.kotlin.compose)
-    alias(libs.plugins.dagger.hilt)
+    alias(libs.plugins.ksp)
+    alias(libs.plugins.kotlin.compose)
+    alias(libs.plugins.hiltAndroid)
 }
 
 android {
@@ -12,7 +12,6 @@ android {
 
     defaultConfig {
         minSdk = 28
-
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles("consumer-rules.pro")
     }
@@ -37,11 +36,6 @@ android {
     buildFeatures {
         compose = true
     }
-    composeOptions {
-        //kotlinCompilerExtensionVersion = "1.5.13" // 👈 Match this with Kotlin 1.9.24
-        kotlinCompilerExtensionVersion = "1.5.10" // 👈 Match this with Kotlin 1.9.22
-    }
-
 }
 
 dependencies {
@@ -54,10 +48,10 @@ dependencies {
     androidTestImplementation(libs.androidx.espresso.core)
 
     implementation(libs.hilt.android)
-    kapt(libs.hilt.compiler)
+    ksp(libs.hilt.compiler)
 
     implementation(libs.room.runtime)
-    kapt(libs.room.compiler)
+    ksp(libs.room.compiler)
     implementation(libs.room.ktx)
 
     implementation(libs.androidx.lifecycle.runtime.ktx)
@@ -68,6 +62,7 @@ dependencies {
     implementation(libs.androidx.ui.tooling.preview)
     implementation(libs.androidx.material3)
     implementation(libs.androidx.navigation.compose)
-
     implementation(libs.coil.compose)
+
+    implementation(project(":data:local"))
 }

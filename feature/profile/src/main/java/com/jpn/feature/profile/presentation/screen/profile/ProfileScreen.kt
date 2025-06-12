@@ -21,6 +21,5 @@ fun ProfileScreen() {
         Text("My Name: Jithish ", style = MaterialTheme.typography.headlineSmall)
         Spacer(modifier = Modifier.height(8.dp))
         Text("About Me: Android babe with Compose charm ")
-        // You can later add image, resume, tabs, etc.
     }
 }

@@ -1,6 +1,6 @@
 package com.jpn.feature.favorites.data.repository
 
-import com.jpn.feature.favorites.data.local.dao.FavoriteDao
+import com.jpn.core.local.dao.FavoriteDao
 import com.jpn.feature.favorites.data.mapper.toDomain
 import com.jpn.feature.favorites.data.mapper.toEntity
 import com.jpn.feature.favorites.domain.model.Favorite

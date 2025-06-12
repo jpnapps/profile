@@ -15,7 +15,6 @@ import com.jpn.feature.profile.presentation.screen.profile.ProfileScreen
 
 @Composable
 fun MainScreen(navController: NavHostController = rememberNavController()) {
-    //val navController = rememberNavController()
 
     Scaffold(
         bottomBar = {
@@ -28,7 +27,9 @@ fun MainScreen(navController: NavHostController = rememberNavController()) {
                 FavoriteScreen(viewModel)
             }
             composable("notes") { /* TODO */ }
-            composable("profile") { ProfileScreen() }
+            composable("profile") {
+                ProfileScreen()
+            }
             composable("study") { /* TODO */ }
             composable("settings") { /* TODO */ }
         }

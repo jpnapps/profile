@@ -1,10 +1,10 @@
-package com.jpn.feature.favorites.data.local.dao
+package com.jpn.core.local.dao
 
 import androidx.room.Dao
 import androidx.room.Delete
 import androidx.room.Insert
 import androidx.room.Query
-import com.jpn.feature.favorites.data.local.entity.FavoriteItemEntity
+import com.jpn.core.local.entity.FavoriteItemEntity
 import kotlinx.coroutines.flow.Flow
 
 @Dao

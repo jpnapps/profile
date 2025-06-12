@@ -3,7 +3,7 @@ package com.jpn.core.local.di
 import android.content.Context
 import androidx.room.Room
 import com.jpn.core.local.AppDatabase
-import com.jpn.feature.favorites.data.local.dao.FavoriteDao
+import com.jpn.core.local.dao.FavoriteDao
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -24,11 +24,8 @@ object DatabaseModule {
             "jpn.db"
         ).build()
     }
+
     @Provides
-    fun provideFavoriteDao(appDatabase: AppDatabase): FavoriteDao {
-        return appDatabase.favoriteDao()
-    }
-/*    @Provides
     fun provideFavoriteDao(appDatabase: AppDatabase): FavoriteDao =
-        appDatabase.favoriteDao()*/
+        appDatabase.favoriteDao()
 }
