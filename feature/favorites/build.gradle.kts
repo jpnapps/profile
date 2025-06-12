@@ -12,7 +12,6 @@ android {
 
     defaultConfig {
         minSdk = 28
-
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles("consumer-rules.pro")
     }
@@ -37,11 +36,6 @@ android {
     buildFeatures {
         compose = true
     }
-  /*  composeOptions {
-        //kotlinCompilerExtensionVersion = "1.5.13" // 👈 Match this with Kotlin 1.9.24
-        kotlinCompilerExtensionVersion = "1.5.10" // 👈 Match this with Kotlin 1.9.22
-    }*/
-
 }
 
 dependencies {
@@ -68,7 +62,6 @@ dependencies {
     implementation(libs.androidx.ui.tooling.preview)
     implementation(libs.androidx.material3)
     implementation(libs.androidx.navigation.compose)
-
     implementation(libs.coil.compose)
 
     implementation(project(":data:local"))

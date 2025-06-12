@@ -24,10 +24,7 @@ object DatabaseModule {
             "jpn.db"
         ).build()
     }
- /*   @Provides
-    fun provideFavoriteDao(appDatabase: AppDatabase): FavoriteDao {
-        return appDatabase.favoriteDao()
-    }*/
+
     @Provides
     fun provideFavoriteDao(appDatabase: AppDatabase): FavoriteDao =
         appDatabase.favoriteDao()

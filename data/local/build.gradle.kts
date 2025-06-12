@@ -47,9 +47,6 @@ dependencies {
     ksp(libs.room.compiler)
     implementation(libs.room.ktx)
 
-
     implementation(libs.hilt.android)
     ksp(libs.hilt.compiler)
-
-    //implementation(project(":feature:favorites"))
 }

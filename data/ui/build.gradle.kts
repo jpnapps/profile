@@ -3,11 +3,9 @@ plugins {
     alias(libs.plugins.kotlin.android)
     alias(libs.plugins.kotlin.compose)
 }
-//
 
 android {
     namespace = "com.jpn.core.ui"
-    //namespace = "com.jithish.core.ui"
     compileSdk = 35
 
     defaultConfig {
@@ -29,11 +27,6 @@ android {
     buildFeatures {
         compose = true
     }
-  /*  composeOptions {
-        //kotlinCompilerExtensionVersion = "1.5.13" // 👈 Match this with Kotlin 1.9.24
-        kotlinCompilerExtensionVersion = "1.5.10" // 👈 Match this with Kotlin 1.9.22
-    }*/
-
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_11
         targetCompatibility = JavaVersion.VERSION_11

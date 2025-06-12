@@ -34,7 +34,7 @@ android {
     buildFeatures {
         compose = true
     }
- /*   composeOptions {
+ /*  composeOptions {
         //kotlinCompilerExtensionVersion = "1.5.13" // 👈 Match this with Kotlin 1.9.24
         kotlinCompilerExtensionVersion = "1.5.10"
     }*/
