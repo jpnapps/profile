@@ -1,6 +1,7 @@
 // FavoriteScreen.kt
 package com.jpn.feature.favorites.presentation.screen.list
 
+import android.util.Log
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
@@ -10,8 +11,10 @@ import androidx.compose.material.icons.filled.Add
 import androidx.compose.material3.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.unit.dp
 import coil.compose.AsyncImage
+import coil.request.ImageRequest
 import com.jpn.feature.favorites.domain.model.Favorite
 import com.jpn.feature.favorites.presentation.viewmodel.FavoriteViewModel
 
@@ -76,7 +79,17 @@ fun FavoriteScreen(viewModel: FavoriteViewModel) {
                             .padding(16.dp)
                     ) {
                         AsyncImage(
-                            model = favorite.imageUrl,
+                            model =  ImageRequest.Builder(LocalContext.current)
+                            .data(favorite.imageUrl)
+                            .listener(
+                                onError = { _, result ->
+                                    Log.e("jpLogs", "Failed to load: ${result.throwable}"+"\n imageUrl:\n "+favorite.imageUrl)
+                                },
+                                onSuccess = { _, _ ->
+                                    Log.d("jpLogs", "Success loading: ${favorite.imageUrl}")
+                                }
+                            )
+                            .build(),
                             contentDescription = favorite.name,
                             modifier = Modifier.size(64.dp)
                         )

@@ -40,6 +40,8 @@ include(":feature:profile")
 include(":feature:reminder")
 include(":feature:more")
 
+include(":domain")
+
 project(":data:ui").projectDir = file("data/ui")
 project(":data:remote").projectDir = file("data/remote")
 project(":data:local").projectDir = file("data/local")
@@ -49,3 +51,4 @@ project(":feature:notes").projectDir = file("feature/notes")
 project(":feature:profile").projectDir = file("feature/profile")
 project(":feature:reminder").projectDir = file("feature/reminder")
 project(":feature:more").projectDir = file("feature/more")
+
