@@ -66,5 +66,7 @@ dependencies {
 
     implementation(project(":feature:profile"))
     implementation(project(":feature:favorites"))
+    implementation(project(":feature:notes"))
+    implementation(project(":feature:pwd"))
     //implementation(project(":data:local"))
 }

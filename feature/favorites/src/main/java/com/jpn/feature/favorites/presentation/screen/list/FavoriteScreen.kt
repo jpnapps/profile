@@ -2,7 +2,6 @@
 package com.jpn.feature.favorites.presentation.screen.list
 
 import android.util.Log
-import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
@@ -16,6 +15,7 @@ import androidx.compose.ui.unit.dp
 import coil.compose.AsyncImage
 import coil.request.ImageRequest
 import com.jpn.feature.favorites.domain.model.Favorite
+import androidx.hilt.navigation.compose.hiltViewModel
 import com.jpn.feature.favorites.presentation.viewmodel.FavoriteViewModel
 
 /*@Composable
@@ -54,7 +54,7 @@ fun FavoriteScreen2(viewModel: FavoriteViewModel) {
 
 
 @Composable
-fun FavoriteScreen(viewModel: FavoriteViewModel) {
+fun FavoriteScreen( viewModel: FavoriteViewModel = hiltViewModel()) {
     val favorites by viewModel.favorites.collectAsState()
     var showDialog by remember { mutableStateOf(false) }
 

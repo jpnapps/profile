@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="add_pwd_title">Add Key</string>
+    <string name="pwd_key_label">Username/Email</string>
+    <string name="pwd_password_label">Password</string>
+    <string name="pwd_others_label">Other Datas</string>
+    <string name="save">Save</string>
+</resources>
