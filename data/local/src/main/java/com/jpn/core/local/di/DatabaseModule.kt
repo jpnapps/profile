@@ -4,6 +4,8 @@ import android.content.Context
 import androidx.room.Room
 import com.jpn.core.local.AppDatabase
 import com.jpn.core.local.dao.FavoriteDao
+import com.jpn.core.local.dao.NoteDao
+import com.jpn.core.local.dao.PwdDao
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -28,4 +30,12 @@ object DatabaseModule {
     @Provides
     fun provideFavoriteDao(appDatabase: AppDatabase): FavoriteDao =
         appDatabase.favoriteDao()
+
+    @Provides
+    fun provideNoteDao(appDatabase: AppDatabase): NoteDao =
+        appDatabase.noteDao()
+
+    @Provides
+    fun providePwdDao(appDatabase: AppDatabase): PwdDao =
+        appDatabase.pwdDao()
 }
