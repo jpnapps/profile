@@ -1,4 +1,4 @@
-package com.jpn.feature.notes.presentation.add
+package com.jpn.feature.pwd.presentation.add
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column

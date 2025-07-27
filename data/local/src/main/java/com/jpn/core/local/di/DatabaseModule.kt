@@ -24,7 +24,9 @@ object DatabaseModule {
             context,
             AppDatabase::class.java,
             "jpn.db"
-        ).build()
+        )
+            //.addMigrations(MIGRATION_1_2)
+            .build()
     }
 
     @Provides

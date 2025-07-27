@@ -21,6 +21,9 @@ android {
     }
 
     buildTypes {
+        debug {
+            isDebuggable = true
+        }
         release {
             isMinifyEnabled = false
             proguardFiles(
@@ -38,11 +41,12 @@ android {
     }
     buildFeatures {
         compose = true
+        buildConfig = true
     }
+
 }
 
 dependencies {
-
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.lifecycle.runtime.ktx)
     implementation(libs.androidx.activity.compose)
@@ -63,10 +67,11 @@ dependencies {
     implementation(libs.hilt.android)
     ksp(libs.hilt.compiler)
     implementation(libs.hilt.navigation.compose)
+    implementation(libs.timber)
 
     implementation(project(":feature:profile"))
     implementation(project(":feature:favorites"))
     implementation(project(":feature:notes"))
     implementation(project(":feature:pwd"))
-    //implementation(project(":data:local"))
+    implementation(project(":core:utils"))
 }

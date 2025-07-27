@@ -6,9 +6,9 @@ import androidx.navigation.compose.composable
 import androidx.navigation.navigation
 import com.jpn.feature.favorites.presentation.screen.list.FavoriteScreen
 import com.jpn.feature.notes.presentation.navigation.NoteScreen
-import com.jpn.feature.notes.presentation.navigation.PwdScreen
+import com.jpn.feature.pwd.presentation.navigation.PwdScreen
 import com.jpn.feature.notes.presentation.navigation.noteNavGraph
-import com.jpn.feature.notes.presentation.navigation.pwdNavGraph
+import com.jpn.feature.pwd.presentation.navigation.pwdNavGraph
 import com.jpn.feature.profile.presentation.screen.profile.ProfileScreen
 import com.jpn.jithish.presentation.screen.Screen
 

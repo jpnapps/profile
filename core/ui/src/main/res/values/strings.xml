@@ -8,4 +8,9 @@
     <string name="dialog_cancel">Cancel</string>
     <string name="dialog_note_added">Note added successfully!</string>
     <string name="dialog_check_connection">Please check your connection and try again.</string>
+    <string name="input_locked">Locked</string>
+    <string name="input_unlocked">Unlocked</string>
+    <string name="delete">Delete</string>
+    <string name="back">back</string>
+    <string name="save">save</string>
 </resources>

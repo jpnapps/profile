@@ -1,14 +1,11 @@
-package com.jpn.feature.notes.di
+package com.jpn.feature.pwd.di
 
-import com.jpn.core.local.dao.PwdDao
 import com.jpn.domain.profile.repository.PwdRepository
 import com.jpn.domain.profile.usecase.AddPwdUseCase
 import com.jpn.domain.profile.usecase.GetPwdByIdUseCase
 import com.jpn.domain.profile.usecase.GetPwdsUseCase
 import com.jpn.domain.profile.usecase.UpdatePwdUseCase
-import com.jpn.feature.favorites.data.repository.PwdRepositoryImpl
-import com.jpn.feature.notes.presentation.list.PwdsViewModel
-import com.jpn.feature.pwd.presentation.detail.PwdDetailViewModel
+import com.jpn.feature.pwd.presentation.list.PwdsViewModel
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -18,13 +15,21 @@ import javax.inject.Singleton
 @Module
 @InstallIn(SingletonComponent::class)
 object PwdModule {
-    @Provides
+  /*  @Provides
+    @Singleton
+    fun provideLogManager(
+    ): LogManager {
+        return TimberLogManager()
+    }*/
+
+/*    @Provides
     @Singleton
     fun providePwdRepository(
-        pwdDao: PwdDao
+        pwdDao: PwdDao,
+        logManager: LogManager
     ): PwdRepository {
-        return PwdRepositoryImpl(pwdDao)
-    }
+        return PwdRepositoryImpl(pwdDao, logManager)
+    }*/
 
     @Provides
     @Singleton
@@ -66,11 +71,26 @@ object PwdModule {
         return GetPwdByIdUseCase(repository)
     }
 
-    @Provides
+    /*@Provides
+    @Singleton
     fun providePwdDetailViewModel(
         getPwdByIdUseCase: GetPwdByIdUseCase,
-       updatePwdUseCase: UpdatePwdUseCase
+        updatePwdUseCase: UpdatePwdUseCase,
+        resourceManager: ResourceManager,
+        logManager: LogManager
     ): PwdDetailViewModel {
-        return PwdDetailViewModel(getPwdByIdUseCase, updatePwdUseCase)
+        return PwdDetailViewModel(getPwdByIdUseCase, updatePwdUseCase, resourceManager,logManager)
     }
+
+
+    @Provides
+    @Singleton
+    fun provideEditPwdViewModel(
+        getPwdByIdUseCase: GetPwdByIdUseCase,
+        updatePwdUseCase: UpdatePwdUseCase,
+        resourceManager: ResourceManager,
+        logManager: LogManager
+    ): EditPwdViewModel {
+        return EditPwdViewModel(getPwdByIdUseCase, updatePwdUseCase, resourceManager,logManager)
+    }*/
 }

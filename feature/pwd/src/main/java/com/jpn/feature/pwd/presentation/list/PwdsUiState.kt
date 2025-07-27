@@ -1,4 +1,4 @@
-package com.jpn.feature.notes.presentation.list
+package com.jpn.feature.pwd.presentation.list
 
 sealed class PwdsUiState {
     object Idle : PwdsUiState()
