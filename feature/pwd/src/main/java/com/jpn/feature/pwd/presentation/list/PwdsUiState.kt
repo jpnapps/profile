@@ -1,8 +1,10 @@
-package com.jpn.feature.notes.presentation.list
+package com.jpn.feature.pwd.presentation.list
 
-sealed class PwdsUiState {
-    object Idle : PwdsUiState()
-    object Loading : PwdsUiState()
-    object Success : PwdsUiState()
-    data class Error(val message: String) : PwdsUiState()
+sealed class PwdsUiEvent {
+    object Idle : PwdsUiEvent()
+    object Loading : PwdsUiEvent()
+    object Success : PwdsUiEvent()
+    data class Error(val message: String) : PwdsUiEvent()
+    object CopytoClip : PwdsUiEvent()
+    data class ShowToast(val message: String) : PwdsUiEvent()
 }

@@ -49,8 +49,11 @@ dependencies {
     ksp(libs.hilt.compiler)
     implementation(libs.hilt.navigation.compose)
 
+    implementation(libs.gson)
+
     implementation(project(":data:local"))
     implementation(project(":domain"))
     implementation(project(":core:utils"))
     implementation(project(":core:ui"))
+    implementation(project(":core:designsystem"))
 }

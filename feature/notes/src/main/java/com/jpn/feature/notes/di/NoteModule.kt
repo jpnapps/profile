@@ -1,9 +1,9 @@
 package com.jpn.feature.notes.di
 
 import com.jpn.core.local.dao.NoteDao
-import com.jpn.domain.profile.repository.NoteRepository
-import com.jpn.domain.profile.usecase.AddNoteUseCase
-import com.jpn.domain.profile.usecase.GetNotesUseCase
+import com.jpn.domain.repository.NoteRepository
+import com.jpn.domain.usecase.AddNoteUseCase
+import com.jpn.domain.usecase.GetNotesUseCase
 import com.jpn.feature.favorites.data.repository.NoteRepositoryImpl
 import com.jpn.feature.notes.presentation.list.NotesViewModel
 import dagger.Module

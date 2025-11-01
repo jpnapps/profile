@@ -1,7 +1,7 @@
 package com.jpn.feature.favorites.data.mapper
 
 import com.jpn.core.local.entity.NoteEntity
-import com.jpn.domain.profile.model.Note
+import com.jpn.domain.model.Note
 
 //fun NoteDto.toDomain(): Note = Note(id, title, content, timestamp)
 

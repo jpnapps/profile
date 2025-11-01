@@ -8,4 +8,17 @@
     <string name="dialog_cancel">Cancel</string>
     <string name="dialog_note_added">Note added successfully!</string>
     <string name="dialog_check_connection">Please check your connection and try again.</string>
+    <string name="input_locked">Locked</string>
+    <string name="input_unlocked">Unlocked</string>
+    <string name="delete">Delete</string>
+    <string name="back">back</string>
+    <string name="save">save</string>
+    <string name="health">Health</string>
+    <string name="water">Water</string>
+    <string name="exercise">Exercise</string>
+    <string name="study">Study</string>
+    <string name="theory">Theory</string>
+    <string name="programs">Programs</string>
+    <string name="project">Project</string>
+    <string name="personal">Personal</string>
 </resources>

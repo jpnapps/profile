@@ -14,6 +14,9 @@ interface PwdDao {
     @Query("SELECT * FROM pwd")
     fun getAllPwds(): Flow<List<PwdEntity>>
 
+    @Query("SELECT * FROM pwd")
+    suspend fun getPwds(): List<PwdEntity>
+
     @Insert
     suspend fun insertPwd(item: PwdEntity)
 

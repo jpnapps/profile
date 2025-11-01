@@ -1,7 +1,7 @@
 package com.jpn.feature.profile.di
 
-import com.jpn.domain.profile.repository.ProfileRepository
-import com.jpn.domain.profile.usecase.GetProfileUseCase
+import com.jpn.domain.repository.ProfileRepository
+import com.jpn.domain.usecase.GetProfileUseCase
 import com.jpn.feature.profile.data.repository.ProfileRepositoryImpl
 import com.jpn.feature.profile.presentation.viewmodel.ProfileViewModel
 import dagger.Module

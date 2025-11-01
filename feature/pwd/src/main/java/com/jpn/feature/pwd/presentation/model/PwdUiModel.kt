@@ -1,10 +1,11 @@
-package com.jpn.feature.notes.presentation.model
+package com.jpn.feature.pwd.presentation.model
 
 data class PwdUiModel(
     val id: Int,
-    val key: String,
-    val value: String,
+    val label: String,
+    val secureData: String,
     val others:List<String>,
     val createdAt: String,
-    val updatedAt: String
+    val updatedAt: String,
+    val xxText: String= "XXXXXXXXXXXXX",
 )

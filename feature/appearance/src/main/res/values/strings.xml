@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="add_pwd_title">Add </string>
+    <string name="edit_pwd_title">Edit Detail</string>
+    <string name="detail_title">Detail</string>
+    <string name="pwd_field_label">Username</string>
+    <string name="pwd_password_label">Password</string>
+    <string name="pwd_others_label">Other Datas</string>
+    <string name="save">Save</string>
+    <string name="edit">Edit</string>
+    <string name="error_key_required">*Key Required</string>
+    <string name="error_label_required">*Label Required</string>
+    <string name="error_value_required">*%1$s Required</string>
+    <string name="error_unknown">Unknown error</string>
+    <string name="error_others_not_be_empty">Others cannot be empty</string>
+    <string name="error_other_already_added">Other already added</string>
+    <string name="enter_field">Enter %1$s</string>
+    <string name="update_success_message">Updated successfully!</string>
+</resources>

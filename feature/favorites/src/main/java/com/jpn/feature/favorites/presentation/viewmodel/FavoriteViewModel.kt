@@ -6,6 +6,7 @@ import com.jpn.feature.favorites.domain.model.Favorite
 import com.jpn.feature.favorites.domain.usecase.AddFavoriteUseCase
 import com.jpn.feature.favorites.domain.usecase.GetFavoritesUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.SharingStarted
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.stateIn
@@ -23,7 +24,7 @@ class FavoriteViewModel @Inject constructor(
         .stateIn(viewModelScope, SharingStarted.Lazily, emptyList())
 
     fun addFavorite(favorite: Favorite) {
-        viewModelScope.launch {
+        viewModelScope.launch(Dispatchers.Default) {
             addFavoriteUseCase(favorite)
         }
     }
