@@ -5,8 +5,8 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.jpn.domain.profile.model.Note
-import com.jpn.domain.profile.usecase.AddNoteUseCase
+import com.jpn.domain.model.Note
+import com.jpn.domain.usecase.AddNoteUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.MutableSharedFlow
@@ -79,6 +79,7 @@ class AddNoteViewModel @Inject constructor(
         val updatedLinks = formState.refLinks.toMutableList().apply { removeAt(index) }
         formState = formState.copy(refLinks = updatedLinks)
     }
+
     fun removeRefLink(link: String) {
         val updatedLinks = formState.refLinks.toMutableList().apply { remove(link) }
         formState = formState.copy(refLinks = updatedLinks)

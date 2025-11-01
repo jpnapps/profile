@@ -15,35 +15,14 @@ fun NavGraphBuilder.pwdNavGraph(navController: NavHostController) {
     composable(PwdScreen.Add.route) {
         AddPwdScreen { navController.popBackStack() }
     }
-/*    composable(PwdScreen.Edit.route) {
-        val itemId = navController.previousBackStackEntry
-            ?.savedStateHandle
-            ?.get<Int>(NavArgs.ITEM_ID) ?: Digits.ZERO
-        Log.d("jpLogs", "pwdNavGraph Edit.route itemId: " + itemId)
-        EditPwdScreen(id = itemId) { navController.popBackStack() }
-    }*/
+
     composable(PwdScreen.List.route) {
         PwdsScreen(onItemClick = { id ->
             navController.currentBackStackEntry?.savedStateHandle?.set(NavArgs.ITEM_ID, id)
             Log.d("jpLogs", "pwdNavGraph List.route id " + id)
-           // navController.navigate(PwdScreen.Detail.route)
             navController.navigate(PwdScreen.Detail.createRoute(id))
         }) { navController.navigate(PwdScreen.Add.route) }
     }
-/*    composable(PwdScreen.Detail.route) {
-        val itemId = navController.previousBackStackEntry
-            ?.savedStateHandle
-            ?.get<Int>(NavArgs.ITEM_ID) ?: Digits.ZERO
-        Log.d("jpLogs", "pwdNavGraph Detail.route itemId: " + itemId)
-        PwdDetailScreen(id = itemId, onBackClick = {
-            Log.d("jpLogs", "pwdNavGraph Detail.route  onBackClick ")
-            navController.popBackStack()
-        }) {
-            Log.d("jpLogs", "pwdNavGraph Detail.route  onEditClick ")
-            navController.currentBackStackEntry?.savedStateHandle?.set(NavArgs.ITEM_ID, itemId)
-            navController.navigate(PwdScreen.Edit.route)
-        }
-    }*/
 
     composable(
         route = PwdScreen.Detail.route,
@@ -75,8 +54,26 @@ fun NavGraphBuilder.pwdNavGraph(navController: NavHostController) {
             onBackClick = { navController.popBackStack() }
         )
     }
-
-
-
-
 }
+
+/*    composable(PwdScreen.Edit.route) {
+        val itemId = navController.previousBackStackEntry
+            ?.savedStateHandle
+            ?.get<Int>(NavArgs.ITEM_ID) ?: Digits.ZERO
+        Log.d("jpLogs", "pwdNavGraph Edit.route itemId: " + itemId)
+        EditPwdScreen(id = itemId) { navController.popBackStack() }
+    }*/
+/*    composable(PwdScreen.Detail.route) {
+        val itemId = navController.previousBackStackEntry
+            ?.savedStateHandle
+            ?.get<Int>(NavArgs.ITEM_ID) ?: Digits.ZERO
+        Log.d("jpLogs", "pwdNavGraph Detail.route itemId: " + itemId)
+        PwdDetailScreen(id = itemId, onBackClick = {
+            Log.d("jpLogs", "pwdNavGraph Detail.route  onBackClick ")
+            navController.popBackStack()
+        }) {
+            Log.d("jpLogs", "pwdNavGraph Detail.route  onEditClick ")
+            navController.currentBackStackEntry?.savedStateHandle?.set(NavArgs.ITEM_ID, itemId)
+            navController.navigate(PwdScreen.Edit.route)
+        }
+    }*/

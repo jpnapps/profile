@@ -1,6 +1,8 @@
 package com.jpn.core.local.di
 
 import android.content.Context
+import com.google.gson.Gson
+import com.google.gson.GsonBuilder
 import com.jpn.core.utils.managers.ResourceManager
 import com.jpn.core.utils.managers.ResourceManagerImpl
 import dagger.Module
@@ -19,4 +21,9 @@ object ResourceModule {
     fun provideResourceManager(
         @ApplicationContext context: Context
     ): ResourceManager = ResourceManagerImpl(context)
+
+    @Provides
+    @Singleton
+    fun provideGson(
+    ): Gson = GsonBuilder().setPrettyPrinting().create()
 }

@@ -45,7 +45,7 @@ fun PwdDetailScreen(
     LaunchedEffect(id) {
         Log.d("jpLogs", "PwdDetailScreen  LaunchedEffect  id: " + id)
         if (id > 0)
-         viewModel.loadPwd(id)
+            viewModel.loadPwd(id)
         Log.d("jpLogs", "PwdDetailScreen  LaunchedEffect  after id: " + id)
     }
 
@@ -71,16 +71,19 @@ fun PwdDetailScreen(
         }
     ) { innerPadding ->
         ScreenContainer(innerPadding) {
-
             WhiteCard {
-                Spacer(modifier = Modifier.height(16.dp))
-                Text(form.fieldLabel, style = MaterialTheme.typography.labelMedium)
-                Spacer(modifier = Modifier.height(8.dp))
-                Text(form.fieldValue, style = MaterialTheme.typography.titleLarge)
-                Spacer(modifier = Modifier.height(16.dp))
-                Text(form.secureLabel, style = MaterialTheme.typography.labelMedium)
-                Spacer(modifier = Modifier.height(8.dp))
-                Text(form.secureValue, style = MaterialTheme.typography.titleLarge)
+                if (!form.isFieldDeleted) {
+                    Spacer(modifier = Modifier.height(16.dp))
+                    Text(form.fieldLabel, style = MaterialTheme.typography.labelMedium)
+                    Spacer(modifier = Modifier.height(8.dp))
+                    Text(form.fieldValue, style = MaterialTheme.typography.titleLarge)
+                }
+                if (!form.isSecureDeleted) {
+                    Spacer(modifier = Modifier.height(16.dp))
+                    Text(form.secureLabel, style = MaterialTheme.typography.labelMedium)
+                    Spacer(modifier = Modifier.height(8.dp))
+                    Text(form.secureValue, style = MaterialTheme.typography.titleLarge)
+                }
             }
         }
     }

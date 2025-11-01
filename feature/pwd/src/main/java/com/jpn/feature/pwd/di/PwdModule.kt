@@ -1,10 +1,11 @@
 package com.jpn.feature.pwd.di
 
-import com.jpn.domain.profile.repository.PwdRepository
-import com.jpn.domain.profile.usecase.AddPwdUseCase
-import com.jpn.domain.profile.usecase.GetPwdByIdUseCase
-import com.jpn.domain.profile.usecase.GetPwdsUseCase
-import com.jpn.domain.profile.usecase.UpdatePwdUseCase
+import com.jpn.domain.repository.PwdRepository
+import com.jpn.domain.usecase.AddPwdUseCase
+import com.jpn.domain.usecase.ExportPwdsUseCase
+import com.jpn.domain.usecase.GetPwdByIdUseCase
+import com.jpn.domain.usecase.GetPwdsUseCase
+import com.jpn.domain.usecase.UpdatePwdUseCase
 import com.jpn.feature.pwd.presentation.list.PwdsViewModel
 import dagger.Module
 import dagger.Provides
@@ -50,9 +51,10 @@ object PwdModule {
     @Provides
     fun providePwdsViewModel(
         getPwdUseCase: GetPwdsUseCase,
-        addPwdUseCase: AddPwdUseCase
+        addPwdUseCase: AddPwdUseCase,
+        exportPwdsUseCase: ExportPwdsUseCase
     ): PwdsViewModel {
-        return PwdsViewModel(getPwdUseCase, addPwdUseCase)
+        return PwdsViewModel(getPwdUseCase, addPwdUseCase,exportPwdsUseCase)
     }
 
     @Provides
@@ -71,6 +73,13 @@ object PwdModule {
         return GetPwdByIdUseCase(repository)
     }
 
+    @Provides
+    @Singleton
+    fun provideExportPwdsUseCase(
+        repository: PwdRepository
+    ): ExportPwdsUseCase {
+        return ExportPwdsUseCase(repository)
+    }
     /*@Provides
     @Singleton
     fun providePwdDetailViewModel(

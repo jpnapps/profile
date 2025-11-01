@@ -5,17 +5,18 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.jpn.core.utils.constants.Common
 import com.jpn.core.utils.managers.LogManager
 import com.jpn.core.utils.managers.ResourceManager
-import com.jpn.domain.profile.model.PwdData
-import com.jpn.domain.profile.usecase.GetPwdByIdUseCase
-import com.jpn.domain.profile.usecase.UpdatePwdUseCase
+import com.jpn.domain.model.PwdData
+import com.jpn.domain.usecase.GetPwdByIdUseCase
+import com.jpn.domain.usecase.UpdatePwdUseCase
 import com.jpn.feature.pwd.R
-import com.jpn.feature.pwd.data.mapper.toForm
-import com.jpn.feature.pwd.data.mapper.toPwdData
 import com.jpn.feature.pwd.presentation.add.AddPwdEvent
 import com.jpn.feature.pwd.presentation.add.AddPwdFormState
 import com.jpn.feature.pwd.presentation.add.AddPwdUiState
+import com.jpn.feature.pwd.presentation.mapper.toForm
+import com.jpn.feature.pwd.presentation.mapper.toPwdData
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.MutableSharedFlow
@@ -47,6 +48,12 @@ class EditPwdViewModel @Inject constructor(
     private val _eventFlow = MutableSharedFlow<AddPwdEvent>()
     val eventFlow = _eventFlow.asSharedFlow()
 
+    private val _isAddFieldEnabled = MutableStateFlow(false)
+    val isAddFieldEnabled: StateFlow<Boolean> = _isAddFieldEnabled.asStateFlow()
+
+    private val _isAddSecureEnabled = MutableStateFlow(false)
+    val isAddSecureEnabled: StateFlow<Boolean> = _isAddSecureEnabled.asStateFlow()
+
     var isEditMode = mutableStateOf(false)
         private set
 
@@ -54,9 +61,16 @@ class EditPwdViewModel @Inject constructor(
         viewModelScope.launch {
             getPwdByIdUseCase(id).collect {
                 _pwd.value = it
-                logManager.d("EPDVM loadPwd id: $id pwdData ",it)
-                formState = it.toForm(resourceManager.getString(R.string.edit_pwd_title)) // mapping here
-                logManager.d("EPDVM loadPwd formState ",formState)
+                logManager.d("EPDVM loadPwd id: $id pwdData ", it)
+                formState =
+                    it.toForm(resourceManager.getString(R.string.edit_pwd_title)) // mapping here
+                formState.run {
+                    if (isFieldDeleted) onFieldDelete(true)
+                    if (isSecureDeleted) onSecureDelete(true)
+                }
+                // formState.isFieldDeleted.takeIf { it == true}.apply { onFieldDelete(true) }
+                //formState.isSecureDeleted.takeIf { it == true}.apply { onSecureDelete(true) }
+                logManager.d("EPDVM loadPwd formState ", formState)
             }
         }
     }
@@ -70,7 +84,13 @@ class EditPwdViewModel @Inject constructor(
     }
 
     fun onFieldDelete(newValue: Boolean) {
-        formState = formState.copy(isFieldDeleted = newValue)
+        // formState = formState.copy(isFieldDeleted = newValue)
+        formState = formState.copy(
+            isFieldDeleted = newValue,
+            fieldValue = Common.EMPTY_STRING,
+            fieldLabel = resourceManager.getString(R.string.pwd_field_label),
+        )
+        _isAddFieldEnabled.value = newValue
     }
 
 
@@ -83,7 +103,13 @@ class EditPwdViewModel @Inject constructor(
     }
 
     fun onSecureDelete(newValue: Boolean) {
-        formState = formState.copy(isSecureDeleted = newValue)
+        // formState = formState.copy(isSecureDeleted = newValue)
+        formState = formState.copy(
+            isSecureDeleted = newValue,
+            secureValue = Common.EMPTY_STRING,
+            secureLabel = resourceManager.getString(R.string.pwd_password_label)
+        )
+        _isAddSecureEnabled.value = newValue
     }
 
     fun toggleFieldLock() {
@@ -96,11 +122,13 @@ class EditPwdViewModel @Inject constructor(
 
     fun addOther(link: String) {
         if (link.isBlank()) {
-            formState = formState.copy(linkError = resourceManager.getString(R.string.error_others_not_be_empty))
+            formState =
+                formState.copy(linkError = resourceManager.getString(R.string.error_others_not_be_empty))
             return
         }
         if (formState.others.contains(link)) {
-            formState = formState.copy(linkError = resourceManager.getString(R.string.error_other_already_added))
+            formState =
+                formState.copy(linkError = resourceManager.getString(R.string.error_other_already_added))
             return
         }
         val updatedLinks = formState.others.toMutableList().apply { add(link) }
@@ -157,7 +185,7 @@ class EditPwdViewModel @Inject constructor(
     }
 
     fun updatePwd() {
-        val item =formState.toPwdData(formState.id ?: 0)
+        val item = formState.toPwdData(formState.id ?: 0)
         viewModelScope.launch {
             _uiState.value = AddPwdUiState.Loading
             try {
@@ -167,7 +195,11 @@ class EditPwdViewModel @Inject constructor(
                 _eventFlow.emit(AddPwdEvent.SaveSuccess)
             } catch (e: Exception) {
                 _uiState.value = AddPwdUiState.Loading
-                _eventFlow.emit(AddPwdEvent.Error(e.message ?: resourceManager.getString(R.string.error_unknown)))
+                _eventFlow.emit(
+                    AddPwdEvent.Error(
+                        e.message ?: resourceManager.getString(R.string.error_unknown)
+                    )
+                )
             }
         }
     }

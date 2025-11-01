@@ -65,4 +65,6 @@ dependencies {
     implementation(libs.hilt.navigation.compose)
 
     implementation(project(":domain"))
+    implementation(project(":core:utils"))
+    implementation(project(":core:ui"))
 }

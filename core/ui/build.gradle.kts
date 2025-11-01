@@ -52,5 +52,7 @@ dependencies {
     implementation (libs.androidx.biometric)
 
     implementation(project(":core:utils"))
+    implementation(project(":core:designsystem"))
     implementation(libs.compose.material.icons)
+    implementation(libs.coil.compose)
 }

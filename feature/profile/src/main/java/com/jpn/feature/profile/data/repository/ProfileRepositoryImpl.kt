@@ -1,7 +1,7 @@
 package com.jpn.feature.profile.data.repository
 
-import com.jpn.domain.profile.model.Profile
-import com.jpn.domain.profile.repository.ProfileRepository
+import com.jpn.domain.model.Profile
+import com.jpn.domain.repository.ProfileRepository
 
 class ProfileRepositoryImpl (
 ) : ProfileRepository {

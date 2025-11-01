@@ -18,6 +18,7 @@ import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.compose.LocalLifecycleOwner
 import androidx.lifecycle.repeatOnLifecycle
+import com.jpn.core.designsystem.theme.res.values.Dimens
 import com.jpn.core.ui.cards.WhiteCard
 import com.jpn.core.ui.containers.ScreenContainer
 import com.jpn.core.ui.dialogs.ErrorDialog
@@ -25,7 +26,6 @@ import com.jpn.core.ui.dialogs.LoadingDialog
 import com.jpn.core.ui.dialogs.NoNetworkDialog
 import com.jpn.core.ui.dialogs.SuccessDialog
 import com.jpn.core.ui.inputs.DeleteableLockTextField
-import com.jpn.core.ui.res.values.Dimens
 import com.jpn.core.ui.topbars.AddScreenTopBar
 import com.jpn.feature.pwd.R
 import com.jpn.feature.pwd.presentation.add.AddPwdEvent
@@ -47,6 +47,8 @@ fun EditPwdScreen(
     var showNoNetworkDialog by remember { mutableStateOf(false) }
     var errorMessage by remember { mutableStateOf<String?>(null) }
     val uiState by viewModel.uiState.collectAsState()
+    val isFieldEnabled by viewModel.isAddFieldEnabled.collectAsState()
+    val isSecureEnabled by viewModel.isAddSecureEnabled.collectAsState()
 
     LaunchedEffect(Unit) {
         viewModel.loadPwd(id)
@@ -96,11 +98,22 @@ fun EditPwdScreen(
 
     Scaffold(
         topBar = {
-            AddScreenTopBar(
+          /*  AddScreenTopBar(
                 form.title,
                 stringResource(R.string.save),
                 onBackClick
-            ) { viewModel.onSaveClick() }
+            ) { viewModel.onSaveClick() }*/
+
+            AddScreenTopBar(
+                title = form.title,
+                isSaveEnabled = true,
+                isAddFieldEnabled = isFieldEnabled,
+                isAddSecureEnabled = isSecureEnabled,
+                contentDescription = form.title,
+                onBackClick = onBackClick,
+                onSaveClick = { viewModel.onSaveClick() },
+                onAddField = { viewModel.onFieldDelete(false) },
+                onAddSecure = { viewModel.onSecureDelete(false) })
 
         }
     ) { innerPadding ->

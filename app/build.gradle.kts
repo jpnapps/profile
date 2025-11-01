@@ -73,5 +73,13 @@ dependencies {
     implementation(project(":feature:favorites"))
     implementation(project(":feature:notes"))
     implementation(project(":feature:pwd"))
+    implementation(project(":feature:more"))
+    implementation(project(":feature:routine"))
+    implementation(project(":feature:study"))
+    implementation(project(":feature:vault"))
+    implementation(project(":feature:appearance"))
+
     implementation(project(":core:utils"))
+    implementation(project(":core:ui"))
+    implementation(project(":core:designsystem"))
 }

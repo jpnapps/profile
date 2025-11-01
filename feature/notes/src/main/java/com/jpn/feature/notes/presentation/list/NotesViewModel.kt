@@ -2,9 +2,9 @@ package com.jpn.feature.notes.presentation.list
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.jpn.domain.profile.model.Note
-import com.jpn.domain.profile.usecase.AddNoteUseCase
-import com.jpn.domain.profile.usecase.GetNotesUseCase
+import com.jpn.domain.model.Note
+import com.jpn.domain.usecase.AddNoteUseCase
+import com.jpn.domain.usecase.GetNotesUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.SharingStarted

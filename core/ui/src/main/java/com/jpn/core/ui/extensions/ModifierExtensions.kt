@@ -7,7 +7,7 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
-import com.jpn.core.ui.res.values.Dimens
+import com.jpn.core.designsystem.theme.res.values.Dimens
 
 
 fun Modifier.screenDefaults(innerPadding: PaddingValues) = this

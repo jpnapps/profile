@@ -9,10 +9,10 @@ import androidx.lifecycle.viewModelScope
 import com.jpn.core.utils.managers.LogManager
 import com.jpn.core.utils.managers.ResourceManager
 import com.jpn.core.utils.managers.TimberLogManager
-import com.jpn.domain.profile.usecase.GetPwdByIdUseCase
-import com.jpn.domain.profile.usecase.UpdatePwdUseCase
+import com.jpn.domain.usecase.GetPwdByIdUseCase
+import com.jpn.domain.usecase.UpdatePwdUseCase
 import com.jpn.feature.pwd.R
-import com.jpn.feature.pwd.data.mapper.toForm
+import com.jpn.feature.pwd.presentation.mapper.toForm
 import com.jpn.feature.pwd.presentation.add.AddPwdFormState
 import com.jpn.feature.pwd.presentation.add.AddPwdUiState
 import dagger.hilt.android.lifecycle.HiltViewModel

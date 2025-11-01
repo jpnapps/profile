@@ -9,16 +9,13 @@ import javax.inject.Inject
 
 class TimberLogManager @Inject constructor() : LogManager {
     override fun d(message: String, json: Any?) {
-        Timber.tag("jpLogs").d("Xjjjkkkkkkkkkjhh " +message+ " :\n "+convertJson(json))
-        Log.d("jpLogs", "Hiiiiiiiiiiiiiii")
-       // Log.d("jpLogs",message+ " :\n "+convertJson(json))
+        Timber.tag("jpLogs").d(message + " :\n " + convertJson(json))
     }
 
-   override fun d(message: String)  {
-       Timber.tag("jpLogs").d(message)
-       Log.d("jpLogs", "Log Log Log Log")
-       Timber.tag("jpLogs").d("Jo Jo Jo jo")
-   }
+    override fun d(message: String) {
+        Timber.tag("jpLogs").d(message)
+        Log.d("jpLogs", "$message")
+    }
 
     override fun i(message: String) = Timber.i(message)
 
@@ -42,12 +39,12 @@ class TimberLogManager @Inject constructor() : LogManager {
         }
     }
 
-    override fun convertJson(json: Any?):String{
-        var temp=""
+    override fun convertJson(json: Any?): String {
+        var temp = ""
         try {
             temp = Gson().toJson(json)
-        }catch (e:Exception){
-            temp= e.message+""
+        } catch (e: Exception) {
+            temp = e.message + ""
         }
         return temp
     }

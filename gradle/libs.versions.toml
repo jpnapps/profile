@@ -1,6 +1,8 @@
 [versions]
 agp = "8.10.0"
 kotlin = "2.0.21"
+coroutines = "1.9.0"
+datastore = "1.1.1"
 coreKtx = "1.16.0"
 junit = "4.13.2"
 junitVersion = "1.2.1"
@@ -57,6 +59,12 @@ androidx-biometric = { group = "androidx.biometric", name = "biometric", version
 compose-material-icons = { group = "androidx.compose.material", name = "material-icons-extended", version.ref = "compose-material-icons" }
 timber = { group = "com.jakewharton.timber", name = "timber", version.ref = "timber-version" }
 gson = { group = "com.google.code.gson", name = "gson", version.ref = "gson" }
+androidx-datastore-preferences = { module = "androidx.datastore:datastore-preferences", version.ref = "datastore" }
+androidx-datastore-core = { module = "androidx.datastore:datastore", version.ref = "datastore" }
+# kotlinx-coroutines-core = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-core", version.ref = "coroutines" }
+# kotlinx-coroutines-android = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-android", version.ref = "coroutines" }
+
+
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }

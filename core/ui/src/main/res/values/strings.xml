@@ -13,4 +13,12 @@
     <string name="delete">Delete</string>
     <string name="back">back</string>
     <string name="save">save</string>
+    <string name="health">Health</string>
+    <string name="water">Water</string>
+    <string name="exercise">Exercise</string>
+    <string name="study">Study</string>
+    <string name="theory">Theory</string>
+    <string name="programs">Programs</string>
+    <string name="project">Project</string>
+    <string name="personal">Personal</string>
 </resources>

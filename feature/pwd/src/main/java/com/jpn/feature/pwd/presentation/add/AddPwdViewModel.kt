@@ -7,9 +7,9 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.jpn.core.utils.constants.Common
 import com.jpn.core.utils.managers.ResourceManager
-import com.jpn.domain.profile.usecase.AddPwdUseCase
+import com.jpn.domain.usecase.AddPwdUseCase
 import com.jpn.feature.pwd.R
-import com.jpn.feature.pwd.data.mapper.toPwdData
+import com.jpn.feature.pwd.presentation.mapper.toPwdData
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.MutableSharedFlow
@@ -28,7 +28,8 @@ class AddPwdViewModel @Inject constructor(
 
     var formState by mutableStateOf(AddPwdFormState(id = 0))
         private set
-
+/*    private val _formState = MutableStateFlow(AddPwdFormState())
+    val formState: StateFlow<AddPwdFormState> = _formState.asStateFlow()*/
 
     private val _uiState = MutableStateFlow<AddPwdUiState>(AddPwdUiState.Idle)
     val uiState: StateFlow<AddPwdUiState> = _uiState.asStateFlow()
@@ -38,11 +39,15 @@ class AddPwdViewModel @Inject constructor(
 
     private val _isAddFieldEnabled = MutableStateFlow(false)
     val isAddFieldEnabled: StateFlow<Boolean> = _isAddFieldEnabled.asStateFlow()
+
     private val _isAddSecureEnabled = MutableStateFlow(false)
     val isAddSecureEnabled: StateFlow<Boolean> = _isAddSecureEnabled.asStateFlow()
+
     private val _isSaveEnabled = MutableStateFlow(false)
     val isSaveEnabled: StateFlow<Boolean> = _isSaveEnabled.asStateFlow()
 
+    private val _fieldLabel = MutableStateFlow<String>(Common.EMPTY_STRING)
+    val fieldLabel: StateFlow<String> = _fieldLabel.asStateFlow()
 
     init {
         formState = formState.copy(
@@ -153,16 +158,6 @@ class AddPwdViewModel @Inject constructor(
 
     fun savePwd() {
         val item = formState.toPwdData(0)
-        /* val item = PwdData(
-              id = 0,
-              key = formState.fieldValue,
-              value = formState.value,
-              fieldLabel = formState.fieldLabel,
-              others = formState.others,
-              createdAt = System.currentTimeMillis(),
-              updatedAt = System.currentTimeMillis()
-          )*/
-
         viewModelScope.launch {
             _uiState.value = AddPwdUiState.Loading
             try {

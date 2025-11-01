@@ -6,23 +6,40 @@ import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.collectAsState
+import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.hilt.navigation.compose.hiltViewModel
+import com.jpn.core.designsystem.theme.JithishTheme
+import com.jpn.feature.appearance.presentation.viewmodel.MainActivityViewModel
 import com.jpn.jithish.presentation.screen.MainScreen
-import com.jpn.jithish.ui.theme.JithishTheme
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
 class MainActivity : ComponentActivity() {
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContent {
-            JithishTheme {
-                MainScreen( )
-
-            }
+            AppRoot()
+            /*  val currentTheme by getSelectedThemeUseCase().collectAsState(initial = AppThemeType.SUNNY)
+              JithishTheme(themeType = currentTheme) {
+                  MainScreen()
+              }*/
         }
+    }
+}
+
+@Composable
+fun AppRoot(
+    viewModel: MainActivityViewModel = hiltViewModel()
+) {
+    val selectedTheme by viewModel.selectedTheme.collectAsState()
+
+    JithishTheme(themeType = selectedTheme) {
+        MainScreen()
     }
 }
 

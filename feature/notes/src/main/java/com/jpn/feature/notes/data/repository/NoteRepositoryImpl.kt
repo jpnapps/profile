@@ -1,8 +1,8 @@
 package com.jpn.feature.favorites.data.repository
 
 import com.jpn.core.local.dao.NoteDao
-import com.jpn.domain.profile.model.Note
-import com.jpn.domain.profile.repository.NoteRepository
+import com.jpn.domain.model.Note
+import com.jpn.domain.repository.NoteRepository
 import com.jpn.feature.favorites.data.mapper.toDomain
 import com.jpn.feature.favorites.data.mapper.toEntity
 import kotlinx.coroutines.flow.Flow
